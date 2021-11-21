@@ -3,6 +3,7 @@ import { LogInService } from '../services/logIn/logIn.service';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -10,17 +11,15 @@ import { NgForm } from '@angular/forms';
 })
 export class LogInComponent implements OnInit {
 
-  connected: boolean = false
 
   constructor(private service: LogInService, private router: Router) { }
 
   connect(form: NgForm){
-    this.connected = this.service.login(form.value.username, form.value.password)
-    if(this.connected)
+    if(this.service.login(form.value.username, form.value.password))
       this.router.navigate(["edit"])
     else{
       form.reset({})
-      alert("wrong username or password")
+      alert("wrong username or password if not check your internet connection")
     }
   }
 

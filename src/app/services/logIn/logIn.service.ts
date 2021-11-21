@@ -15,10 +15,11 @@ export class LogInService {
     let db = this.firestore.collection("BestTunisiaTravel").doc("admins").valueChanges()
     db.subscribe(admins => {
       let obj = JSON.parse(JSON.stringify(admins))
-      for(let i=0; i<obj.admins.length; i++)
-        if(username == obj.admins[i].username && sha1.hash(password) == obj.admins[i].password)
+      for(let i=0; i<obj.admins.length; i++){
+        if(username == obj.admins[i].username && sha1.hash(password) == obj.admins[i].password){
           this.connected = true
-
+        }
+      }
     })
     return this.connected
   }

@@ -9,13 +9,9 @@ import { LogInService } from '../services/logIn/logIn.service';
 })
 export class EditComponent implements OnInit {
 
-  timeLeft: number = 0
-
-
   constructor(private service: LogInService, private router: Router) { }
 
   ngOnInit(): void {
-    this.timeLeft = 10000
   }
   
 
