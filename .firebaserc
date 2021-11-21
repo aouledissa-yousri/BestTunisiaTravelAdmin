@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "besttunisiatravel": {
+      "hosting": {
+        "AdminSpace": [
+          "besttunisiatravel"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "besttunisiatravel"
+  }
+}

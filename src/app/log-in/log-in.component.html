@@ -1,0 +1,19 @@
+<div class = "contain" style = "width: fit-content">
+    <h1 style = "width: fit-content">
+        <i class="fas fa-user-cog"></i>
+        Welcome administrator
+    </h1>
+
+    <form id = "form" #form = "ngForm" (ngSubmit) = "connect(form)">
+        <i class = "fas fa-user icon"></i><br>
+        <input type = "text" placeholder = "Username" name = "username" class = "form-control" ngModel><br>
+
+        <input type = "password" placeholder = "Password" name = "password" class = "form-control" ngModel><br>
+        <i class="fas fa-lock icon2"></i>
+
+
+        <button type = "submit" class = "btn btn-success">Log in</button> &nbsp; &nbsp; &nbsp; 
+        <button type = "reset" class = "btn btn-danger" (click) = "reset(form)">Reset</button>
+
+    </form>
+</div>

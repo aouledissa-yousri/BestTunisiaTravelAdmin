@@ -1,0 +1,35 @@
+.icon{
+    float: left;
+    z-index: 2;
+    position: relative;
+    top: 35px;
+    left: 5px;
+}
+
+.icon2{
+    float: left;
+    z-index: 2;
+    position: relative;
+    bottom: 55px;
+    left: 5px;
+}
+
+input{
+    padding-left: 30px;
+    width: 200px;
+}
+
+.contain{
+    position: relative;
+    left: 30%;
+    top: 20vh;
+    background: white;
+    padding: 10px;
+    box-shadow: 5px 5px 10px grey; 
+    border-radius: 15px;
+
+}
+
+#form{
+    margin-left: 140px;
+}

@@ -1,0 +1,25 @@
+.search{
+    width: 500px;
+    display: inline;
+}
+
+.contain{
+    position: relative;
+    width: fit-content;
+    left: 25%;
+    top: 20vh;
+    background: white;
+    padding: 10px;
+    box-shadow: 5px 5px 10px grey; 
+    border-radius: 15px;
+}
+
+.controls{
+    margin-left: 250px;
+}
+
+.logout{
+    position: relative;
+    left: 92%;
+    bottom: 180px;
+}
