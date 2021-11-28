@@ -1,0 +1,40 @@
+<div *ngIf = "destination.id != 0" class = "container info">
+    <img [src] = "destination.image" height = "200" width = "200"><br><br>
+    <b>Offer id:</b> 
+    <input type = "text" class = "form-control input" [value] = "destination.id" disabled><br>
+
+    <b>Offer name:</b> 
+    <input type = "text" class = "form-control input" [value] = "destination.name" disabled><br>
+
+    <b>Offer prize (DT): </b>
+    <input type = "text" class = "form-control input" [value] = "destination.prize" disabled><br>
+
+    <input type = "checkbox" [checked] = "destination.promotion" disabled>&nbsp;Promotion &nbsp;
+    <input type = "checkbox" [checked] = "destination.recent" disabled>&nbsp;Recent<br><br>
+
+    <b>Categories: </b>
+    <div style = "margin-left: 10px">
+        <input type = "checkbox" disabled [checked] = "destination.category.includes('Culture')">Culture <br>
+        <input type = "checkbox" disabled [checked] = "destination.category.includes('Nature and outdoor activites')">Nature and outdoor activites <br>
+        <input type = "checkbox" disabled [checked] = "destination.category.includes('Gastronomy')">Gastronomy <br>
+        <input type = "checkbox" disabled [checked] = "destination.category.includes('Beaches')">Beaches 
+    </div><br>
+
+    <b>Description: </b>
+    <textarea class = "form-control input" disabled>{{destination.description}}</textarea><br><br>
+
+    <b>Comments: </b><br><br>
+    <ng-container *ngIf = "destination.comments.length > 0; else none">
+        <ng-container *ngFor = "let comment of destination.comments">
+            <p class = "list-group-item" width = "200">
+                <b>{{comment.user}}: </b>{{comment.comment}}
+            </p>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #none>
+        <li class = "list-group-item comment" style = "background: rgb(193, 195, 197)">No comments yet</li>
+    </ng-template><br>
+
+    <button class = "btn btn-danger" style = "margin-left: 80%" (click) = "back()">back</button>
+</div><br>

@@ -1,0 +1,14 @@
+.input{
+    background: rgb(196, 190, 190);
+    width: 300px;
+}
+
+.comment{
+    width: 300px;
+}
+
+.info{
+    padding: 20px; 
+    background: white; 
+    width: 400px;
+}

@@ -1,17 +1,27 @@
-<div class = "contain">
-    <input type = "text" placeholder = "Offer name" class = "form-control search"> &nbsp;
-    <button class = "btn btn-success">Add new offer</button><br><br>
+<div class = "contain" id = "parent">
+    <input type = "text" placeholder = "Offer name" class = "form-control search" #word (keyup) = "search(word.value)"> &nbsp;
+    <button class = "btn btn-success" (click) = "route('new_offer')">Add new offer</button><br><br>
 
-    <ul class = "list-group">
-        <li class = "list-group-item">
-            <b>Offer title</b>
-            <span class= "controls">
-                <button class = "btn btn-primary">See more</button> &nbsp;
-                <button class = "btn btn-warning">Modify</button> &nbsp;
-                <button class = "btn btn-danger">Delete record</button> &nbsp;
-            </span>
-        </li>
+    <ul class = "list-group" *ngIf = "destinations.length > 0">
+        <ng-container *ngFor = "let destination of destinations">
+            <li class = "list-group-item border" style = "margin-bottom: 10px" [id] = "destination.id">
+                <h4 style = "font-weight: bold">{{destination.name}}</h4>
+                <div class = "controls">
+                    <button class = "btn btn-primary" (click) = "seeMore(destination.id)">See more</button> &nbsp;
+                    <button class = "btn btn-warning">Modify offer</button> &nbsp;
+                    <button class = "btn btn-danger" (click) = "openDialogue(destination.id)">Delete offer</button>
+                </div>
+            </li>
+        </ng-container>
     </ul>
 </div>
 
-<button class = "btn btn-dark logout" (click) = "logout()">Log out</button>
+<div class = "confirm bg-light border" [hidden] = "!window.open">
+    <span class = "exit" (click) = "closeDialogue()">X</span>
+    <h4 style = "text-align: center">Do you want to delete this offer?</h4>
+    <div class = "confirmation">
+        <button class = "btn btn-success" (click) = "delete(window.trigger)">Yes</button> &nbsp;
+        <button class = "btn btn-danger" (click) = "closeDialogue()">No</button>
+    </div>
+</div>
+<button class = "btn btn-dark logout" (click) = "logout()" id = "logout">Log out</button>

@@ -1,0 +1,18 @@
+@import url("../more/more.component.css");
+
+.input{
+    background: white;
+}
+
+input.ng-invalid.ng-touched, .exists{
+    border-left: 2px solid red;
+}
+
+input.ng-valid.ng-touched{
+    border-left: 2px solid green;
+}
+
+.alertBox{
+    width: 300px
+}
+

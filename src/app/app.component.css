@@ -11,5 +11,6 @@
 
 .contain{
     background: linear-gradient(to top right, rgb(218, 215, 215), white);
-    height: 100vh;
+    background-repeat: repeat-y;
+    min-height: 100vh
 }

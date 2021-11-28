@@ -1,0 +1,62 @@
+<form class = "container info" [formGroup] = "form" (ngSubmit) = "submit()">
+    <img [src] = "showCase" height = "200" width = "200"><br><br>
+    <input type = "text" class = "form-control input" placeholder = "image url" formControlName = "image" #link>
+    <div class = "alert alert-danger alertBox" *ngIf = "isValid('image')">
+        Image is required
+    </div><br>
+
+    <button class = "btn btn-primary" type = "button" (click) = "imageShowcase(link.value)">View image</button> <br><br>
+
+    <b>Offer id:</b> 
+    <input type = "number" class = "form-control input" min = "0" formControlName = "id" (keypress) = "typing($event)" 
+    [ngClass] = "{'exists': search(offerId.value)}" #offerId>
+    <div class = "alert alert-danger alertBox" *ngIf = "search(offerId.value)">
+        Id already exists
+    </div>
+    <div class = "alert alert-danger alertBox" *ngIf = "isValid('id')">
+        Id must be a number different from 0
+    </div><br>
+    
+
+    <b>Offer name:</b> 
+    <input type = "text" class = "form-control input" formControlName = "name">
+    <div class = "alert alert-danger alertBox" *ngIf = "nameIsValid()">
+        Must begin with an uppercase character
+    </div><br>
+    
+    
+
+    <b>Offer prize (DT): </b>
+    <input type = "number" class = "form-control input" min = "0" formControlName = "prize">
+    <div class = "alert alert-danger alertBox" *ngIf = "isValid('prize')">
+        Prize is required
+    </div><br>
+
+    <input type = "checkbox" formControlName = "promotion">&nbsp;Promotion &nbsp;
+    <input type = "checkbox" formControlName = "recent">&nbsp;Recent<br><br>
+
+    <b>Categories: </b>
+    <div style = "margin-left: 10px" formArrayName = "category">
+        <input type = "checkbox" value = "Culture" (change) = "addCategory($event)">
+            Culture 
+        <br>
+
+        <input type = "checkbox" value = "Nature and outdoor activites" (change) = "addCategory($event)">
+            Nature and outdoor activites 
+        <br>
+
+        <input type = "checkbox" value = "Gastronomy" (change) = "addCategory($event)">
+            Gastronomy 
+        <br>
+
+        <input type = "checkbox" value = "Beaches" (change) = "addCategory($event)">
+            Beaches 
+    </div><br>
+
+    <b>Description: </b>
+    <textarea class = "form-control input" formControlName = "description"></textarea><br><br>
+
+    <button class = "btn btn-success" type = "submit" [disabled] = "form.invalid || search(offerId.value)">Add offer</button> &nbsp;
+    <button class = "btn btn-warning" type = "button" (click) = "reset()">Reset</button>
+    <a class = "btn btn-danger" style = "margin-left: 120px" href = "../edit">Back</a>
+</form><br>
