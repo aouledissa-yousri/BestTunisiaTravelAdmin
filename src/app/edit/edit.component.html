@@ -8,7 +8,7 @@
                 <h4 style = "font-weight: bold">{{destination.name}}</h4>
                 <div class = "controls">
                     <button class = "btn btn-primary" (click) = "seeMore(destination.id)">See more</button> &nbsp;
-                    <button class = "btn btn-warning">Modify offer</button> &nbsp;
+                    <button class = "btn btn-warning" (click) = "modify(destination.id)">Modify offer</button> &nbsp;
                     <button class = "btn btn-danger" (click) = "openDialogue(destination.id)">Delete offer</button>
                 </div>
             </li>

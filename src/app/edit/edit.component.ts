@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { LogInService } from '../services/logIn/logIn.service';
 import { DestinationsService } from "../services/destinations/destinations.service";
 import { Destination } from '../models/destination';
-import * as firebase from "firebase/app"
 
 @Component({
   selector: 'app-edit',
@@ -71,7 +70,11 @@ export class EditComponent implements OnInit {
   }
 
   seeMore(id: number){
-    this.router.navigate(["edit", id])
+    this.router.navigate(["more", id])
+  }
+
+  modify(id: number){
+    this.router.navigate(["modify", id])
   }
 
   route(route: string){

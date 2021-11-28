@@ -24,6 +24,17 @@ export class DestinationsService {
     return
   }
 
+  add(offer: any){
+    this.firestore.collection("BestTunisiaTravel").doc("offers").update({
+      offers: firestore.arrayUnion(offer)
+    })
+  }
+
+  update(oldOffer: any, newOffer: any){
+    this.delete(oldOffer)
+    this.add(newOffer)
+  }
+
   find(word: string, destinations: Destination[]){
     let result: Destination[] = []
     for(let i=0; i<destinations.length; i++){
@@ -41,10 +52,5 @@ export class DestinationsService {
     return false
   }
 
-  add(offer: any){
-    this.firestore.collection("BestTunisiaTravel").doc("offers").update({
-      offers: firestore.arrayUnion(offer)
-    })
-  }
 
 }

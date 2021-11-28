@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { FormControl, FormGroup } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import { Destination } from '../models/destination';
 import { DestinationsService } from '../services/destinations/destinations.service';
 
@@ -16,7 +13,6 @@ export class AddOfferComponent implements OnInit {
 
   form: FormGroup = new FormGroup({})
   destinations: Destination[] = []
-  showCase: string = ""
 
   constructor(private router: Router, private build: FormBuilder, private destinationService: DestinationsService) { }
 
@@ -26,7 +22,7 @@ export class AddOfferComponent implements OnInit {
   }
 
   //initialize form
-  initForm(){
+  private initForm(){
     this.form = this.build.group({
       id: [0, [Validators.required, Validators.min(1)]],
       name: ["", [Validators.required, Validators.pattern("[A-Z][^A-Z0-9]+")]],
@@ -37,7 +33,6 @@ export class AddOfferComponent implements OnInit {
       description: ["", Validators.required],
       image: ["", Validators.required]
     })
-
   }
 
   //submit form
@@ -68,9 +63,7 @@ export class AddOfferComponent implements OnInit {
 
 
   //showcase image
-  imageShowcase(link: string){
-    this.showCase = link
-  }
+  
 
   //choose a category for the offer
   addCategory(e: any){

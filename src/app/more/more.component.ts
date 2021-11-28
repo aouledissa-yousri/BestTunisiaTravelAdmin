@@ -22,7 +22,7 @@ export class MoreComponent implements OnInit {
     this.fetchOffer()
   }
 
-  fetchOffer(){
+  private fetchOffer(){
     this.destinationsService.linkToDb().subscribe((obj: any) => {
       let destinations: Destination[] = JSON.parse(JSON.stringify(obj)).offers
       for(let i=0; i<destinations.length; i++){

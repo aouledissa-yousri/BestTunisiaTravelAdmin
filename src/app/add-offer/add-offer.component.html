@@ -1,11 +1,11 @@
+ 
 <form class = "container info" [formGroup] = "form" (ngSubmit) = "submit()">
-    <img [src] = "showCase" height = "200" width = "200"><br><br>
+    <img [src] = "link.value" height = "200" width = "200"><br><br>
     <input type = "text" class = "form-control input" placeholder = "image url" formControlName = "image" #link>
     <div class = "alert alert-danger alertBox" *ngIf = "isValid('image')">
         Image is required
     </div><br>
 
-    <button class = "btn btn-primary" type = "button" (click) = "imageShowcase(link.value)">View image</button> <br><br>
 
     <b>Offer id:</b> 
     <input type = "number" class = "form-control input" min = "0" formControlName = "id" (keypress) = "typing($event)" 

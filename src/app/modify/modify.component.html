@@ -1,0 +1,54 @@
+<form class = "container info" [formGroup] = "form" *ngIf = "destination.id != 0" (ngSubmit) = "submit()">
+    <img [src] = "image.value" height = "200" width = "200"><br><br>
+    <input type = "text" class = "form-control input" placeholder = "image url" formControlName = "image" #image>
+    <div class = "alert alert-danger alertBox" *ngIf = "isValid('image')">
+        Image is required
+    </div><br>
+
+
+    <b>Offer id:</b> 
+    <input type = "number" class = "form-control input" min = "0" [value] = "destination.id" disabled style = "background: rgb(207, 206, 206)"><br>
+    
+
+    <b>Offer name:</b> 
+    <input type = "text" class = "form-control input" formControlName = "name">
+    <div class = "alert alert-danger alertBox" *ngIf = "nameIsValid() || nameIsEmpty()">
+        Must begin with one uppercase character and contain no numbers
+    </div><br>
+    
+    
+
+    <b>Offer prize (DT): </b>
+    <input type = "number" class = "form-control input" min = "0" formControlName = "prize" (keypress) = "typing($event)">
+    <div class = "alert alert-danger alertBox" *ngIf = "isValid('prize')">
+        Prize is required
+    </div><br>
+
+    <input type = "checkbox" formControlName = "promotion" formControlName = "promotion">&nbsp;Promotion &nbsp;
+    <input type = "checkbox" formControlName = "recent" formControlName = "recent">&nbsp;Recent<br><br>
+
+    <b>Categories: </b>
+    <div style = "margin-left: 10px" formArrayName = "category">
+        <input type = "checkbox" value = "Culture" [checked] = "exists('Culture')" (change) = "addCategory($event)">
+            Culture 
+        <br>
+
+        <input type = "checkbox" value = "Nature and outdoor activites" [checked] = "exists('Nature and outdoor activites')" (change) = "addCategory($event)">
+            Nature and outdoor activites 
+        <br>
+
+        <input type = "checkbox" value = "Gastronomy" [checked] = "exists('Gastronomy')" (change) = "addCategory($event)">
+            Gastronomy 
+        <br>
+
+        <input type = "checkbox" value = "Beaches" [checked] = "exists('Beaches')" (change) = "addCategory($event)">
+            Beaches 
+    </div><br>
+
+    <b>Description: </b>
+    <textarea class = "form-control input" formControlName = "description"></textarea><br><br>
+
+    <button class = "btn btn-success" type = "submit" [disabled] = "form.invalid">Update</button> &nbsp;
+    <button class = "btn btn-warning" type = "button" (click) = "reset()">Reset</button>
+    <a class = "btn btn-danger" style = "margin-left: 120px" (click) = "back()">Back</a>
+</form><br>

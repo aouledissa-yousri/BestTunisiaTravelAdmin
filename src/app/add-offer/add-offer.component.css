@@ -12,7 +12,15 @@ input.ng-valid.ng-touched{
     border-left: 2px solid green;
 }
 
+textarea.ng-invalid.ng-touched, .exists{
+    border-left: 2px solid red;
+}
+
+textarea.ng-valid.ng-touched{
+    border-left: 2px solid green;
+}
+
 .alertBox{
-    width: 300px
+    width: 300px;
 }
 
