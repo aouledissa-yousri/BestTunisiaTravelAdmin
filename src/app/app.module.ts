@@ -15,6 +15,7 @@ import { EditComponent } from "./edit/edit.component";
 import { MoreComponent } from './more/more.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
 import { ModifyComponent } from './modify/modify.component';
+import { ErrorComponent } from './error/error.component';
 
 const config = {
   /*apiKey: "AIzaSyAyqrFjLwLBi3q9Z_2WJjQGx_sruc9v1mA",
@@ -41,7 +42,8 @@ const config = {
     EditComponent,
     MoreComponent,
     AddOfferComponent,
-    ModifyComponent
+    ModifyComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

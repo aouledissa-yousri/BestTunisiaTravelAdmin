@@ -164,4 +164,13 @@ export module sha1
         }
         return hex(h0) + hex(h1) + hex(h2) + hex(h3) + hex(h4);
     }
+
+    export function randomString(length: number){
+        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/*-+<>§!£µ=&é(-è_çà"
+        let result = ""
+        for(let i=0; i< length; i++){
+            result += chars.charCodeAt(Math.floor(Math.random() * chars.length))
+        }
+        return result
+    }
 }

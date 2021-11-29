@@ -5,6 +5,7 @@ import { DestinationsService } from '../services/destinations/destinations.servi
 import { Router } from "@angular/router"
 
 
+
 @Component({
   selector: 'app-more',
   templateUrl: './more.component.html',

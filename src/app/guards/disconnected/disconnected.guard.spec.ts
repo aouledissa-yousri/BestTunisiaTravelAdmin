@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DisconnectionGuard } from './disconnection.guard';
+import { DisconnectedGuard } from './disconnected.guard';
 
-describe('DisconnectionGuard', () => {
-  let guard: DisconnectionGuard;
+describe('DisconnectedGuard', () => {
+  let guard: DisconnectedGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(DisconnectionGuard);
+    guard = TestBed.inject(DisconnectedGuard);
   });
 
   it('should be created', () => {

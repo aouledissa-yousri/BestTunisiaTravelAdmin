@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormBuilder, Validators, FormArray} from '@angu
 import { Destination } from '../models/destination';
 import { DestinationsService } from '../services/destinations/destinations.service';
 
+
 @Component({
   selector: 'app-add-offer',
   templateUrl: './add-offer.component.html',

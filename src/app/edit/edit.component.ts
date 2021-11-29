@@ -4,6 +4,7 @@ import { LogInService } from '../services/logIn/logIn.service';
 import { DestinationsService } from "../services/destinations/destinations.service";
 import { Destination } from '../models/destination';
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -26,7 +27,7 @@ export class EditComponent implements OnInit {
   
 
   logout(){
-    this.loginService.logout()
+    this.loginService.removeLocalStorage()
     this.router.navigate(["log_in"])
   }
 

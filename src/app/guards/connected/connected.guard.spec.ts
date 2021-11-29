@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ConnectionGuard } from './connection.guard';
+import { ConnectedGuard } from './connected.guard';
 
-describe('ConnectionGuard', () => {
-  let guard: ConnectionGuard;
+describe('ConnectedGuard', () => {
+  let guard: ConnectedGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(ConnectionGuard);
+    guard = TestBed.inject(ConnectedGuard);
   });
 
   it('should be created', () => {
