@@ -142,7 +142,7 @@ export class AddOfferComponent implements OnInit {
     return false
   }
 
-
+  
 
 
 }
