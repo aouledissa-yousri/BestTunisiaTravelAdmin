@@ -76,7 +76,7 @@ export class ModifyComponent implements OnInit {
 
   //allowing only numerical caracters in Prize
   typing(e: any){
-    if(e.key == "+"){
+    if(e.key == "+" || e.key == "-"){
       e.preventDefault()
     }
   }
