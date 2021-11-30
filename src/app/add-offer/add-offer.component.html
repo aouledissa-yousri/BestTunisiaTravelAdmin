@@ -27,7 +27,7 @@
     
 
     <b>Offer prize (DT): </b>
-    <input type = "number" class = "form-control input" min = "0" formControlName = "prize">
+    <input type = "number" class = "form-control input" min = "0" formControlName = "prize" (keypress) = "typing2($event)" >
     <div class = "alert alert-danger alertBox" *ngIf = "isValid('prize')">
         Prize is required
     </div><br>

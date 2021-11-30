@@ -15,7 +15,7 @@ import { FormControl, FormGroup, FormBuilder, Validators, FormArray} from '@angu
 export class ModifyComponent implements OnInit {
 
   id: number = 0
-  destination: Destination = new Destination(0,"","",0,false,false,[],[],"")
+  destination: Destination = new Destination(0,"","",0,false,false,[],[],"",0)
   
 
   form: FormGroup = new FormGroup({})
@@ -138,7 +138,8 @@ export class ModifyComponent implements OnInit {
       recent: this.form.value["recent"],
       category: this.category.value,
       comments: this.destination.comments,
-      description: this.form.value["description"]
+      description: this.form.value["description"],
+      reservations: this.destination.reservations
     }
 
     this.destinationsService.update(this.destination, newOffer)

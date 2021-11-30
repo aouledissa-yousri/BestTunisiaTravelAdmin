@@ -47,7 +47,8 @@ export class AddOfferComponent implements OnInit {
       recent: this.form.value["recent"],
       category: this.category.value,
       comments: [],
-      description: this.form.value["description"]
+      description: this.form.value["description"],
+      reservations: 0
     }
     this.addOffer(offer)
     this.reset()
@@ -84,10 +85,18 @@ export class AddOfferComponent implements OnInit {
     return this.form.get("category") as FormArray
   }
 
-  //prevent float numbers in id
+  //prevent float numbers and operators in id
   typing(e: any){
     this.search(e.target.value)
-    if(e.key == "."){
+    if(e.key == "." || e.key == "+" || e.key == "-"){
+      e.preventDefault()
+    }
+  }
+
+  //prevent symbols in prize
+  typing2(e: any){
+    this.search(e.target.value)
+    if(e.key == "-" || e.key == "+"){
       e.preventDefault()
     }
   }

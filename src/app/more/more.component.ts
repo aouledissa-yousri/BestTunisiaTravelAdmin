@@ -14,7 +14,7 @@ import { Router } from "@angular/router"
 export class MoreComponent implements OnInit {
 
   id: number = 0
-  destination: Destination = new Destination(0,"","",0,false,false,[],[],"")
+  destination: Destination = new Destination(0,"","",0,false,false,[],[],"",0)
 
   constructor(private activated: ActivatedRoute, private destinationsService: DestinationsService, private router: Router) { }
 

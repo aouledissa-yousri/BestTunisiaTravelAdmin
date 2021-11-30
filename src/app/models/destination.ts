@@ -10,6 +10,7 @@ export class Destination{
         public recent: boolean,
         public category: string[],
         public comments: Comment[],
-        public description: string
+        public description: string,
+        public reservations: number
     ){}
 }
