@@ -3,13 +3,13 @@
     <button class = "btn btn-success" (click) = "route('new_offer')">Add new offer</button><br><br>
 
     <ul class = "list-group" *ngIf = "destinations.length > 0">
-        <ng-container *ngFor = "let destination of destinations">
+        <ng-container *ngFor = "let destination of destinations; index as i">
             <li class = "list-group-item border" style = "margin-bottom: 10px" [id] = "destination.id">
                 <h4 style = "font-weight: bold">{{destination.name}}</h4>
                 <div class = "controls">
                     <button class = "btn btn-primary" (click) = "seeMore(destination.id)">See more</button> &nbsp;
                     <button class = "btn btn-warning" (click) = "modify(destination.id)">Modify offer</button> &nbsp;
-                    <button class = "btn btn-danger" (click) = "openDialogue(destination.id)">Delete offer</button>
+                    <button class = "btn btn-danger" (click) = "openDialogue(destination.id)" [id] = "i">Delete offer</button>
                 </div>
             </li>
         </ng-container>

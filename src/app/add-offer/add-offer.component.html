@@ -58,5 +58,5 @@
 
     <button class = "btn btn-success" type = "submit" [disabled] = "form.invalid || search(offerId.value)">Add offer</button> &nbsp;
     <button class = "btn btn-warning" type = "button" (click) = "reset()">Reset</button>
-    <a class = "btn btn-danger" style = "margin-left: 120px" href = "../edit">Back</a>
+    <a class = "btn btn-danger" style = "margin-left: 120px" (click) = "back()">Back</a>
 </form><br>

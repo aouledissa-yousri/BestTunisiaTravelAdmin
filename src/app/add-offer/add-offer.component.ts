@@ -15,6 +15,8 @@ export class AddOfferComponent implements OnInit {
   form: FormGroup = new FormGroup({})
   destinations: Destination[] = []
 
+  
+
   constructor(private router: Router, private build: FormBuilder, private destinationService: DestinationsService) { }
 
   ngOnInit(): void {
@@ -119,9 +121,7 @@ export class AddOfferComponent implements OnInit {
 
   //get destinations from database
   addOffer(offer: any){
-    this.destinationService.linkToDb().subscribe(obj => {
-      this.destinationService.add(offer)
-    })
+    this.destinationService.add(offer)
     alert("added new offer to database")
   }
 
@@ -142,7 +142,9 @@ export class AddOfferComponent implements OnInit {
     return false
   }
 
-  
+  back(){
+    this.router.navigate(["edit"])
+  }
 
 
 }
