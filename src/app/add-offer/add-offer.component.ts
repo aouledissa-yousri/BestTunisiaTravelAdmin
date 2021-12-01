@@ -15,7 +15,9 @@ export class AddOfferComponent implements OnInit {
   form: FormGroup = new FormGroup({})
   destinations: Destination[] = []
 
-  
+  dialogue = {
+    open: false
+  }
 
   constructor(private router: Router, private build: FormBuilder, private destinationService: DestinationsService) { }
 
@@ -122,7 +124,7 @@ export class AddOfferComponent implements OnInit {
   //get destinations from database
   addOffer(offer: any){
     this.destinationService.add(offer)
-    alert("added new offer to database")
+    this.alertOfferAdded()
   }
 
   //load existing offers
@@ -144,6 +146,16 @@ export class AddOfferComponent implements OnInit {
 
   back(){
     this.router.navigate(["edit"])
+  }
+
+  alertOfferAdded(){
+    this.dialogue.open = true
+    document.getElementById("form")?.classList.add("blur")
+  }
+
+  closeDialogue(){
+    this.dialogue.open = false
+    document.getElementById("form")?.classList.remove("blur")
   }
 
 

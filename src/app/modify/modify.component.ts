@@ -16,6 +16,10 @@ export class ModifyComponent implements OnInit {
 
   id: number = 0
   destination: Destination = new Destination(0,"","",0,false,false,[],[],"",0)
+
+  dialogue = {
+    open: false
+  }
   
 
   form: FormGroup = new FormGroup({})
@@ -143,9 +147,22 @@ export class ModifyComponent implements OnInit {
     }
 
     this.destinationsService.update(this.destination, newOffer)
-    this.router.navigate(["edit"])
-    alert("offer has been updated")
+    this.alertOfferUpdated()
+    /*this.router.navigate(["edit"])
+    alert("offer has been updated")*/
 
   }
+
+  alertOfferUpdated(){
+    this.dialogue.open = true
+    document.getElementById("form")?.classList.add("blur")
+  }
+
+  closeDialogue(){
+    this.dialogue.open = false
+    document.getElementById("form")?.classList.remove("blur")
+    this.back()
+  }
+
 
 }

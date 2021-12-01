@@ -1,5 +1,5 @@
  
-<form class = "container info" [formGroup] = "form" (ngSubmit) = "submit()">
+<form class = "container info" [formGroup] = "form" (ngSubmit) = "submit()" id = "form">
     <img [src] = "link.value" height = "200" width = "200"><br><br>
     <input type = "text" class = "form-control input" placeholder = "image url" formControlName = "image" #link>
     <div class = "alert alert-danger alertBox" *ngIf = "isValid('image')">
@@ -60,3 +60,11 @@
     <button class = "btn btn-warning" type = "button" (click) = "reset()">Reset</button>
     <a class = "btn btn-danger" style = "margin-left: 120px" (click) = "back()">Back</a>
 </form><br>
+
+<div class = "confirm bg-light border" [hidden] = "!dialogue.open">
+    <span class = "exit" (click) = "closeDialogue()">X</span>
+    <h4 style = "text-align: center">A new offer has been added</h4>
+    <div class = "confirmation">
+        <button class = "btn btn-success" (click) = "closeDialogue()" style = "margin-left: 300px">Ok</button> &nbsp;
+    </div>
+</div>
