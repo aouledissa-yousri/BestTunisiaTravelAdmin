@@ -15,6 +15,10 @@ export class LogInComponent implements OnInit {
 
   form: FormGroup = new FormGroup({})
 
+  dialogue = {
+    open: false
+  }
+
   constructor(private loginService: LogInService, private router: Router, private build: FormBuilder) { }
 
   
@@ -45,7 +49,7 @@ export class LogInComponent implements OnInit {
           }
         }
 
-        alert("invalid username or password")
+        this.openDialogue()
         this.form.reset({
           username: "",
           password: ""
@@ -56,5 +60,16 @@ export class LogInComponent implements OnInit {
         alert("an error occurred")
       }
     )
+  }
+
+  openDialogue(){
+    this.dialogue.open = true
+    document.getElementById("login")?.classList.add("blur")
+  }
+
+  closeDialogue(){
+    this.dialogue.open = false
+    document.getElementById("login")?.classList.remove("blur")
+
   }
 }

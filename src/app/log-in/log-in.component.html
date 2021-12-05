@@ -1,11 +1,21 @@
-<div class = "contain" style = "width: fit-content">
+<div class = "confirm bg-light border" style = "z-index: 2" [hidden] = "!dialogue.open">
+    <span class = "exit" (click) = "closeDialogue()">X</span>
+    <h4 style = "text-align: center">Invalid username or password</h4>
+    <div class = "confirmation">
+        <button class = "btn btn-success" (click) = "closeDialogue()" style = "margin-left: 300px">Ok</button> &nbsp;
+    </div>
+</div>
+
+
+
+<div class = "contain" style = "width: fit-content" style = "z-index: 1" id = "login">
     <h1 style = "width: fit-content">
         <i class="fas fa-user-cog"></i>
         Welcome administrator
     </h1>
 
     <form id = "form" [formGroup] = "form" (ngSubmit) = "login()">
-        <i class = "fas fa-user icon"></i><br>
+        <i class = "fas fa-user icon" ></i><br>
         <input type = "text" placeholder = "Username" formControlName = "username" class = "form-control"><br>
 
         <input type = "password" placeholder = "Password" formControlName = "password" class = "form-control"><br>
@@ -16,4 +26,8 @@
         <button type = "reset" class = "btn btn-danger">Reset</button>
 
     </form>
+
+    
 </div>
+
+

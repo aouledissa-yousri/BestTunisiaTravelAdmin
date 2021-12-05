@@ -16,15 +16,15 @@ const routes: Routes = [
   {path: "more/:id", component: MoreComponent, canActivate: [DisconnectedGuard]},
   {path: "modify/:id", component: ModifyComponent, canActivate: [DisconnectedGuard]},
   {path: "new_offer", component: AddOfferComponent, canActivate: [DisconnectedGuard]},
-
   {path: "", redirectTo: "edit", pathMatch: "full"},
-
   {path: "**", component: ErrorComponent}
+
+
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

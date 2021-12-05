@@ -42,6 +42,8 @@ export class AddOfferComponent implements OnInit {
 
   //submit form
   submit(){
+    
+
     let offer = {
       id: this.form.value["id"],
       image: this.form.value["image"],
@@ -49,7 +51,7 @@ export class AddOfferComponent implements OnInit {
       prize: this.form.value["prize"],
       promotion: this.form.value["promotion"],
       recent: this.form.value["recent"],
-      category: this.category.value,
+      category: this.checkCategory(),
       comments: [],
       description: this.form.value["description"],
       reservations: 0
@@ -156,6 +158,18 @@ export class AddOfferComponent implements OnInit {
   closeDialogue(){
     this.dialogue.open = false
     document.getElementById("form")?.classList.remove("blur")
+  }
+
+
+  private checkCategory(){
+    let category 
+    if(this.category.value == null){
+       category = []
+    }else{
+      category = this.category.value
+    }
+
+    return category
   }
 
 

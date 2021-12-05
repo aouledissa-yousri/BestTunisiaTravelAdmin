@@ -14,6 +14,7 @@ export class EditComponent implements OnInit {
 
   searchCategory: string[] = []
   destinations: Destination[] = []
+  reservations: any[] = []
   window = {
     trigger: 0,
     open: false
@@ -35,6 +36,9 @@ export class EditComponent implements OnInit {
     this.destinationsService.linkToDb().subscribe((obj: any) => {
       this.destinations = JSON.parse(JSON.stringify(obj)).offers
     })
+    this.destinationsService.linkToRes().subscribe((obj: any) => {
+      this.reservations = JSON.parse(JSON.stringify(obj)).reservations
+    })
   }
 
   openDialogue(id: number){
@@ -55,6 +59,8 @@ export class EditComponent implements OnInit {
     for(let i=0; i<this.destinations.length; i++){
       if(this.destinations[i].id == x){
         this.destinationsService.delete(this.destinations[i])
+        this.destinationsService.removeRes(this.reservations)
+        this.destinationsService.updateRes(this.updateRes(this.destinations[i].id))
         break
       }
     }
@@ -80,6 +86,15 @@ export class EditComponent implements OnInit {
 
   route(route: string){
     this.router.navigate([route])
+  }
+
+  private updateRes(id: number){
+    let result = []
+    for(let i=0; i<this.reservations.length; i++){
+      if(this.reservations[i].offerId != id)
+        result.push(this.reservations[i])
+    }
+    return result
   }
 
 }

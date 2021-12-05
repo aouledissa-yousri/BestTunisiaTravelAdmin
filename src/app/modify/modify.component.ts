@@ -148,9 +148,6 @@ export class ModifyComponent implements OnInit {
 
     this.destinationsService.update(this.destination, newOffer)
     this.alertOfferUpdated()
-    /*this.router.navigate(["edit"])
-    alert("offer has been updated")*/
-
   }
 
   alertOfferUpdated(){

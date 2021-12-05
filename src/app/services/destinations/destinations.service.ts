@@ -17,6 +17,10 @@ export class DestinationsService {
     return this.firestore.collection("BestTunisiaTravel").doc("offers").valueChanges()
   }
 
+  linkToRes(){
+    return this.firestore.collection("BestTunisiaTravel").doc("reservations").valueChanges()
+  }
+
   delete(destinations: Destination){
     this.firestore.collection("BestTunisiaTravel").doc("offers").update({
       offers: firestore.arrayRemove(destinations)
@@ -50,6 +54,22 @@ export class DestinationsService {
         return true
     }
     return false
+  }
+
+  removeRes(reservations: any[]){
+    for(let i=0; i<reservations.length; i++){
+      this.firestore.collection("BestTunisiaTravel").doc("reservations").update({
+        reservations: firestore.arrayRemove(reservations[i])
+      })
+    }
+  }
+
+  updateRes(reservations: any[]){
+    for(let i=0; i<reservations.length; i++){
+      this.firestore.collection("BestTunisiaTravel").doc("reservations").update({
+        reservations: firestore.arrayUnion(reservations[i])
+      })
+    }
   }
 
 
